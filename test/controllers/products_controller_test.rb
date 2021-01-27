@@ -20,6 +20,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
     get new_product_url
     assert_response :success
+    assert_select 'h1', 'New Product'
+    assert_select 'a', 'Back'
   end
 
   test "should create product" do
@@ -38,6 +40,9 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test "should get edit" do
     get edit_product_url(@product)
     assert_response :success
+    assert_select 'h1', 'Editing Product'
+    assert_select 'a', 'Show'
+    assert_select 'a', 'Back'
   end
 
   test "should update product" do
